@@ -1,0 +1,554 @@
+/* ------------------------- */
+/* RESET E VARIÁVEIS GLOBAIS */
+/* ------------------------- */
+:root {
+    --primary-color: #2E7D32; /* Verde escuro e elegante */
+    --secondary-color: #4CAF50; /* Verde mais vibrante para botões */
+    --dark-color: #333333; /* Cinza escuro para textos */
+    --light-color: #F8F9FA; /* Fundo claro, quase branco */
+    --white-color: #FFFFFF;
+    --font-headings: 'Poppins', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Efeito de rolagem suave */
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--dark-color);
+    background-color: var(--white-color);
+}
+
+/* ------------------------- */
+/* ESTILOS GERAIS            */
+/* ------------------------- */
+h1, h2, h3 {
+    font-family: var(--font-headings);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.section-light {
+    background-color: var(--light-color);
+}
+
+/* ------------------------- */
+/* CABEÇALHO E NAVEGAÇÃO     */
+/* ------------------------- */
+header {
+    background: var(--white-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+nav .logo {
+    font-family: var(--font-headings);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav .nav-links li a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 600;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+/* Efeito de sublinhado na navegação */
+nav .nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav .nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* --- Estilos do Menu Hamburger --- */
+.hamburger-menu {
+    display: none; /* Escondido em telas grandes */
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    z-index: 1001; /* Para ficar acima do menu */
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--dark-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animação do Hamburger para "X" */
+.hamburger-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ------------------------- */
+/* SEÇÃO HERO (PRINCIPAL)    */
+/* ------------------------- */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1920') no-repeat center center/cover;
+    color: var(--white-color);
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.btn-cta {
+    background: var(--secondary-color);
+    color: var(--white-color);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px; /* Botão arredondado */
+    font-family: var(--font-headings);
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn-cta:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px); /* Efeito de "levantar" */
+}
+
+.btn-spacing {
+    margin-top: 2rem;
+}
+
+/* ------------------------- */
+/* SEÇÕES DE CONTEÚDO        */
+/* ------------------------- */
+#sobre p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.card-link {
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: inherit; /* Garante que o texto dentro do link não fique azul */
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    align-items: flex-start; /* Alinha os cards no topo */
+}
+
+.card {
+    background: var(--white-color);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 270px; /* Reduzido para caber 4 na linha */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-link:hover .card, .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    min-height: 220px; /* Garante altura mínima para o card sem título */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+}
+
+.card h3 {
+    padding: 1.5rem; /* Aumentado para centralizar verticalmente */
+    color: var(--primary-color);
+    text-align: center; /* Centralizado */
+}
+.card h3:only-child {
+    padding: 1.5rem; /* Mantém o padding se houver apenas o h3 */
+}
+
+/* Estilos para a seção Day Use */
+.price-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.price-card {
+    background-color: var(--white-color);
+    border-left: 5px solid var(--secondary-color);
+    padding: 2rem;
+    width: 280px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border-radius: 0 8px 8px 0;
+}
+
+.price-card .price-title {
+    font-family: var(--font-headings);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.price-card .price-value {
+    display: block;
+    font-family: var(--font-headings);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0.2rem 0;
+}
+
+.price-card .price-obs {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.day-use-main-obs {
+    margin-top: 2rem;
+    font-weight: bold;
+}
+.form-placeholder {
+    margin-top: 2rem;
+    padding: 3rem;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ------------------------- */
+/* FORMULÁRIO DE RESERVA     */
+/* ------------------------- */
+.booking-form {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.booking-form .btn-cta {
+    width: 100%;
+    margin-top: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para o calendário Flatpickr */
+.flatpickr-day.disabled, 
+.flatpickr-day.disabled:hover {
+    background: #f2a0a0; /* Fundo vermelho claro */
+    color: #7f1d1d; /* Texto vermelho escuro */
+    cursor: not-allowed;
+    border-color: #f2a0a0;
+}
+
+/* Ajuste para o input de data readonly */
+input[readonly] {
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+
+.total-price-container {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    padding: 1.5rem;
+    background-color: var(--white-color);
+    border-left: 5px solid var(--primary-color);
+    border-radius: 0 8px 8px 0;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.total-price-container h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.total-price-container #total-price {
+    font-family: var(--font-headings);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* ------------------------- */
+/* SEÇÃO LOCALIZAÇÃO E MAPA  */
+/* ------------------------- */
+#localizacao {
+    padding-bottom: 0;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    text-align: left;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 280px;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.map-container {
+    flex: 2;
+    min-width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ------------------------- */
+/* RODAPÉ                    */
+/* ------------------------- */
+footer {
+    background: var(--dark-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* ------------------------- */
+/* RESPONSIVIDADE (MOBILE)   */
+/* ------------------------- */
+@media (max-width: 768px) {
+    /* --- Ajustes de Navegação --- */
+    .nav-links {
+        position: fixed;
+        right: -100%; /* Começa fora da tela */
+        top: 0;
+        height: 100vh;
+        width: 60%;
+        background-color: var(--white-color);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.nav-active {
+        right: 0; /* Puxa o menu para dentro da tela */
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .nav-links li a {
+        font-size: 1.2rem;
+    }
+
+    .hamburger-menu {
+        display: block; /* Mostra o botão hamburger */
+    }
+
+    /* --- Ajustes Gerais de Layout --- */
+    section {
+        padding: 3rem 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* --- Ajustes da Seção Hero --- */
+    .hero {
+        height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    /* --- Ajustes dos Cards --- */
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    /* --- Ajustes dos Preços Day Use --- */
+    .price-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .price-card {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .form-placeholder {
+        padding: 2rem 1rem;
+    }
+
+    /* --- Ajustes do Formulário de Reserva --- */
+    .form-row {
+        flex-direction: column;
+    }
+
+    /* --- Ajustes do Contato e Mapa --- */
+    .contact-container {
+        text-align: center;
+    }
+
+    .map-container { height: 300px; }
+}

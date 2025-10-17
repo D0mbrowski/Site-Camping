@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Cabanas - Camping Vale Verde</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Nosso CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Flatpickr (Calendário Interativo) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Camping Vale Verde</a>
+            <ul class="nav-links">
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#acomodacoes">Acomodações</a></li>
+                <li><a href="index.html#day-use">Day Use</a></li>
+                <li><a href="index.html#localizacao">Contato</a></li>
+            </ul>
+            <button class="hamburger-menu" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção Formulário de Reserva -->
+        <section id="reserva-form" class="section-light">
+            <h2>Reserva de Cabanas</h2>
+            <p>Preencha o formulário abaixo com os detalhes da sua estadia. Entraremos em contato via WhatsApp para confirmar a disponibilidade e os próximos passos.</p>
+            
+            <form class="booking-form" id="booking-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="client-name">Seu Nome</label>
+                        <input type="text" id="client-name" name="client-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-phone">Seu Telefone (WhatsApp)</label>
+                        <input type="tel" id="client-phone" name="client-phone" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cabin">1. Escolha a Cabana</label>
+                        <select id="cabin" name="cabin" required>
+                            <option value="" disabled selected>Selecione uma cabana</option>
+                            <option value="1">Cabana 1</option>
+                            <option value="2">Cabana 2</option>
+                            <option value="3">Cabana 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guests">2. Número de Pessoas (1 a 4)</label>
+                        <input type="number" id="guests" name="guests" min="1" max="4" value="2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date-range">3. Período da Estadia</label>
+                        <input type="text" id="date-range" placeholder="Escolha a cabana primeiro" readonly>
+                    </div>
+                </div>
+                <button type="submit" class="btn-cta">Enviar Pedido de Reserva</button>
+            </form>
+
+            <div class="total-price-container">
+                <h3>Valor Estimado da Reserva:</h3>
+                <span id="total-price">R$ 0,00</span>
+            </div>
+
+            <a href="index.html" class="back-link">Voltar para a página inicial</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Camping Vale Verde. Feito com ❤️ e natureza.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
